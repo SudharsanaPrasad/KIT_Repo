@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     # add your apps below this line
     'katrinconsole.core',
+    'orchestrator',
 ]
 
 MIDDLEWARE = [
