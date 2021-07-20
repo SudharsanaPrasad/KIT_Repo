@@ -1,0 +1,21 @@
+kind: BuildConfig
+metadata:
+  name: katrinconsole
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://git.scc.kit.edu/katrin-apps/katrinconsole.git
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+      buildArgs:
+        - name: OAUTH_CLIENT_ID_ARG
+          value: xwRDhl0ErCwqk7fP3zFeIeRQnMNiVpCHumPQbjcL
+        - name: OAUTH_CLIENT_SECRET_ARG
+          value: pdJyMxtTcXhiBV0pN78SBVQOAmf8yOphAltvNdEr0r4pg0UTavVruanfnTAuZpunYfVWl9Zv7drI72ePzpWBmnZPzA5vb3j2On9TOXgxClTCMLZmxXYy4q8VWfpvKYEe
+  output:
+    to:
+      kind: ImageStreamTag
+      name: katrinconsole:latest

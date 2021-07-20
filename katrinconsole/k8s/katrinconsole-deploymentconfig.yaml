@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  name: katrinconsole
+spec:
+  selector:
+    app: katrinconsole
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: katrinconsole
+    spec:
+      containers:
+        - name: katrinconsole-webapp
+          image: docker-registry.default.svc:5000/epics/katrinconsole:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: DJANGO_SUPERUSER_USERNAME
+              value: admin
+            - name: DJANGO_SUPERUSER_PASSWORD
+              value: $ipepdv$
+            - name: DJANGO_SUPERUSER_EMAIL
+              value: jalal.mostafa@kit.edu
+            - name: ALLOWED_HOSTS
+              value: katrin-console.kaas.kit.edu
+            - name: CELERY_BROKER_URL
+              value: amqp://katrinconsole:$ipepdv$@rabbitmq.epics.svc:5672/katrinconsole
+            - name: SECRET_KEY
+              value: f-VwsBAsJ7X3oza-1sAgs-kjZsdM0jUeCy4GhaTLuvM
+            - name: DATABASE_NAME
+              value: katrinconsole
+            - name: DATABASE_USER
+              value: katrinconsole
+            - name: DATABASE_PASSWORD
+              value: $ipepdv$
+            - name: DATABASE_HOST
+              value: mysql.epics.svc
+          volumeMounts:
+            - mountPath: /var/lib/nginx
+              name: volume-rp4kh
+      volumes:
+        - emptyDir: {}
+          name: volume-rp4kh
+  triggers:
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+          - katrinconsole-webapp
+        from:
+          kind: ImageStreamTag
+          name: katrinconsole:latest
+          namespace: epics
+      type: ImageChange
+    - type: ConfigChange

@@ -1,0 +1,115 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "@typescript-eslint/comma-dangle": [
+            "error",
+            {
+                "arrays": "always",
+                "objects": "always",
+                "imports": "always",
+                "exports": "always",
+                "functions": "never"
+            }
+        ],
+        "comma-dangle": "off",
+        "eol-last": [
+            "error",
+            "always"
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "curly": "error",
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "max-len": [
+            "error",
+            150
+        ],
+        "no-multiple-empty-lines": "error",
+        "no-trailing-spaces": "error",
+        "no-console": "error",
+        "no-var": "error",
+        "no-empty": "warn",
+        "no-unused-expressions": "warn",
+        "no-undef": "off",
+        "quote-props": [
+            "error",
+            "consistent-as-needed"
+        ],
+        "jsx-quotes": [
+            "error",
+            "prefer-double"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": "off",
+        "@typescript-eslint/semi": [
+            "error",
+            "never"
+        ],
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": [
+            "warn"
+        ],
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-empty-interface": "warn",
+        "no-fallthrough": "off",
+        "react/jsx-filename-extension": [
+            "error",
+            {
+                "extensions": [
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        ],
+        "react/jsx-indent": [
+            "warn",
+            4
+        ]
+    },
+    "overrides": [
+        {
+            "files": [
+                "katrinconsole-web/*.d.ts",
+                "katrinconsole-web/*.ts",
+                "katrinconsole-web/*.tsx"
+            ],
+            "excludedFiles": "webpack.*.js"
+        }
+    ]
+}

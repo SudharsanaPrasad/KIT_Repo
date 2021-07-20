@@ -1,0 +1,14 @@
+- model: oauth2_provider.Application
+  pk: 1
+  fields:
+    client_id: xwRDhl0ErCwqk7fP3zFeIeRQnMNiVpCHumPQbjcL
+    redirect_uris: ''
+    client_type: confidential
+    authorization_grant_type: password
+    client_secret: pdJyMxtTcXhiBV0pN78SBVQOAmf8yOphAltvNdEr0r4pg0UTavVruanfnTAuZpunYfVWl9Zv7drI72ePzpWBmnZPzA5vb3j2On9TOXgxClTCMLZmxXYy4q8VWfpvKYEe
+    name: katrinconsole-web
+    user_id: 1
+    skip_authorization: 0
+    created: 2021-06-25 08:31:27.848031
+    updated: 2021-06-25 08:31:27.848081
+    algorithm: ''

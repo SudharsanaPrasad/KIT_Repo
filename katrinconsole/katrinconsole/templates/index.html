@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>KATRIN Console</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+</head>
+
+<body>
+    {% csrf_token %}
+</body>
+    <script type="text/javascript" src="{% static 'dist/index.bundle.js' %}"></script>
+</html>
